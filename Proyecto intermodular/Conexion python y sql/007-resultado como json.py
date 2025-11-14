@@ -25,4 +25,4 @@ for fila in filas:
 	print("Nombre",fila['Nombre del cliente'])
 	print("Apellidos: ",fila['Apellidos del cliente'])
 	print("Edad: ",fila['Edad del cliente'])
-	print("###################")
+	print("###################")s
