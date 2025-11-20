@@ -6,6 +6,21 @@
 		"telefonos":["12345678","1234587"]
 	},
 	"experiencias_laborales":[
-		"experiencia1",
-		"experiencia2"
+		{
+			"titulo":"picker",
+			"empresa":"aban",
+			"tiempo":"2025"
+		},
+		{
+			"titulo":"picker",
+			"empresa":"aban",
+			"tiempo":"2025"
+		},
+		{
+			"titulo":"picker",
+			"empresa":"aban",
+			"tiempo":"2025"
+		},
+		
+	]
 }
