@@ -1,0 +1,11 @@
+{
+	"datos_personales":{
+		"nombre":"Dominique",
+		"apellidos":"Farias Osorio",
+		"correo":"domi@mail.com",
+		"telefonos":["12345678","1234587"]
+	},
+	"experiencias_laborales":[
+		"experiencia1",
+		"experiencia2"
+}
