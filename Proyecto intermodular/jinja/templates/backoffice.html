@@ -16,13 +16,49 @@
         <header>Aplicacion empresarial BKN de Dominique</header>
         <main>
             <nav>
-                <a>Clientes</a>
-                <a>Productos</a>
-                <a>Pedidos</a>
-                <section>
-                    Contenido
-                </section>
+                {% for tabla in mis_tablas %}
+                    <a>{{ tabla }}</a>
+                {% endfor %}
             </nav>
+
+            <section>
+                <style>
+                    table{width: 100%;border-collapse: collapse;border: 2px solid #9370DB;}
+                    table th, table td{padding: 10px;text-align: center;}
+                    table thead{background: #9370DB;color: white;}
+                </style>
+
+                <table>
+                    <thead>
+                        <tr>
+                            {% for tabla in mis_tablas %}
+                                <th>{{ tabla }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                </table>
+
+                <br>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Email</th>
+                            <th>Direccion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Antonio</td>
+                            <td>Garcia</td>
+                            <td>Antonio@mail.com</td>
+                            <td>Calle de Antonio</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
         </main>
     </body>
 </html>
