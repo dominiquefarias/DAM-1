@@ -3,20 +3,20 @@
    <head>
        <style>
            html,body{height:100%;padding:0px;margin:0px;display:flex;width:100%;}
-           nav{background:indigo;flex:1;color:white;padding:20px;}
+           nav{background:plum;flex:1;color:white;padding:20px;}
            main{flex:4;background:aliceblue;padding:20px;}
        </style>
    </head>
    <body>
-       <nav>jocarsa | panel</nav>
+       <nav>Dominique | panel</nav>
        <style>
            nav{display:flex;flex-direction:column;gap:20px;}
-           nav button{border:none;background:white;color:indigo;padding:20px;
+           nav button{border:none;background:white;color:plum;padding:20px;
            text-transform:uppercase;}
        </style>
        <script>
            // En primer lugar cargamos datos de un json
-           fetch("http://127.0.0.1:5000/tablas")
+           fetch("/tablas")
            .then(function(respuesta){
                return respuesta.json(); // La resp viene en JSON
            })
@@ -38,7 +38,7 @@
        </style>
        <script>
            // En primer lugar cargamos datos de un json
-           fetch("http://127.0.0.1:5000/clientes")
+           fetch("/clientes")
            .then(function(respuesta){
                return respuesta.json(); // La resp viene en JSON
            })
@@ -68,4 +68,4 @@
            })
        </script>
    </body>
-</html>s
+</html>
