@@ -1,6 +1,7 @@
 CREATE USER 
 'composiciones'@'localhost' 
-IDENTIFIED  BY 'composiciones1$';
+IDENTIFIED  BY 'Compo123$Segura';
+
 
 GRANT USAGE ON *.* TO 'composiciones'@'localhost';
 
