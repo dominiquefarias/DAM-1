@@ -6,7 +6,7 @@
         padding:0x;margin:0px;height:100%;width:100%;
      	}
       body{
-        background:purple;display:flex;justify-content:
+        background:grey;display:flex;justify-content:
           center;align-items:center;
       }
       main{
@@ -15,7 +15,7 @@
      	}
       section{
         display:grid;grid-template-columns:repeat(3,100fr);
-     	 	border:2px solid pink;
+     	 	border:2px solid black;
       }
       div{
         display:flex;justify-content:center;
@@ -33,5 +33,16 @@
       </section>
       {% endfor %}
     </main>
+    <script>
+     	// Selecciono todas las celdas
+      let celdas = document.querySelectorAll("div")
+      // Ahora recorro las celdas
+      celdas.forEach(function(celda){
+      	// Determino aleatoriamente si la borro o no
+        if(Math.random() < 0.5){	// Si el aleatorio está por debajo de un limite
+        	celda.style.color = "white" 	// Borro la celda
+        }
+      })
+    </script>
   </body>
 </html>

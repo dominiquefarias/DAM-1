@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .rojo{background:rgb(226, 69, 69);}
+      .verde{background: rgb(1, 255, 1);}
+    </style>
+  </head>
+  <body>
+    <p>Esta entrada debe tener 9 caracteres solamente</p>
+    <input class="rojo">
+    <script>
+      let entrada = document.querySelector("input")
+      entrada.onkeyup = function(){
+        let valor = this.value;
+        let longitud = valor.length
+        if(longitud == 9){
+            this.classList.add("verde")
+            this.classList.remove("rojo")
+        }else{
+            this.classList.remove("verde")
+            this.classList.add("rojo")
+        }
+      }
+    </script>
+  </body>
+</html>
