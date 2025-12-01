@@ -1,0 +1,142 @@
+/home/dominique/Documentos/002-escribirpropiedadesdeunaclase.py
+/home/dominique/Documentos/003-anidacion.py
+/home/dominique/Documentos/001-escribir.py
+/home/dominique/Documentos/001-escribirtextoaarchivo.py
+/home/dominique/Documentos/003-formateoelresultado.py
+/home/dominique/Documentos/simulacreo-de-activida.py
+/home/dominique/Documentos/002-frenkestein.py
+/home/dominique/Documentos/001-chivato.py
+/home/dominique/Documentos/007-condicion.py
+/home/dominique/Documentos/008-llamada-suma.py
+/home/dominique/Documentos/003-claseroca.py
+/home/dominique/Documentos/006-ejemploconcliente.py
+/home/dominique/Documentos/002-classcliente.py
+/home/dominique/Documentos/0001-repaso.py
+/home/dominique/Documentos/002-atributos.py
+/home/dominique/Documentos/003-ahoraconlibreriaamattematica.py
+/home/dominique/Documentos/004-telefonoslista.py
+/home/dominique/Documentos/010-creolistaclientes.py
+/home/dominique/Documentos/clientes.txt
+/home/dominique/Documentos/001-repasopropiedades.py
+/home/dominique/Documentos/006-recorrerlalista.py
+/home/dominique/Documentos/vamos a realizar una demostración.txt
+/home/dominique/Documentos/001-traerarchivo.py
+/home/dominique/Documentos/002-error con try except.py
+/home/dominique/Documentos/004-sumadeltamaño.py
+/home/dominique/Documentos/007-while.py
+/home/dominique/Documentos/003-dragon.py
+/home/dominique/Documentos/mapa.txt
+/home/dominique/Documentos/004-definopropiedadprivada.py
+/home/dominique/Documentos/Este es un primer articulo.txt
+/home/dominique/Documentos/004-herenciamultinivel.py
+/home/dominique/Documentos/basededatos.txt
+/home/dominique/Documentos/uso la base de datos.sql
+/home/dominique/Documentos/003-constructorconparametro.py
+/home/dominique/Documentos/try.py
+/home/dominique/Documentos/007-funcion.py
+/home/dominique/Documentos/servidore.py
+/home/dominique/Documentos/004-anidacion.py
+/home/dominique/Documentos/005-crearcuentabancaria.py
+/home/dominique/Documentos/005-incercion correcta.sql
+/home/dominique/Documentos/003-metodogetter.py
+/home/dominique/Documentos/003- mucho peligro.sql
+/home/dominique/Documentos/funcionsuma.py
+/home/dominique/Documentos/005-pequeñadecoracion.py
+/home/dominique/Documentos/001-libreria matematica.py
+/home/dominique/Documentos/try3.py
+/home/dominique/Documentos/001-literales.py
+/home/dominique/Documentos/tarea001.py
+/home/dominique/Documentos/001-funciondedivision.py
+/home/dominique/Documentos/003-ejemplonotantraumatico.py
+/home/dominique/Documentos/007-variableglobal.py
+/home/dominique/Documentos/002-ahoraleemos.py
+/home/dominique/Documentos/003-comandos basicos CRUD.sql
+/home/dominique/Documentos/007-pickleescribir.py
+/home/dominique/Documentos/003-crear tabla primaria.sql
+/home/dominique/Documentos/008-incremento.py
+/home/dominique/Documentos/print.py
+/home/dominique/Documentos/004-masparametros.py
+/home/dominique/Documentos/007-clientes.py
+/home/dominique/Documentos/002-clasemadreanimal.py
+/home/dominique/Documentos/001-propiaclase.py
+/home/dominique/Documentos/condicional003.py
+/home/dominique/Documentos/004- insercion fallida.sql
+/home/dominique/Documentos/003-creadoragenda.py
+/home/dominique/Documentos/006-funcionesyclases.py
+/home/dominique/Documentos/terminologia.md
+/home/dominique/Documentos/001-arrancoflask.py
+/home/dominique/Documentos/008-escribirenarchivodelacarpeta.py
+/home/dominique/Documentos/trydd.html
+/home/dominique/Documentos/002-mejoras.py
+/home/dominique/Documentos/prueba tarea2.py
+/home/dominique/Documentos/002-ejercicios.py
+/home/dominique/Documentos/001-gatosyperros.py
+/home/dominique/Documentos/001-try.py
+/home/dominique/Documentos/00-crear una tabla de datos.sql
+/home/dominique/Documentos/empresa.md
+/home/dominique/Documentos/001-ejercicios.py
+/home/dominique/Documentos/blog.json
+/home/dominique/Documentos/008-ejemplopractico.py
+/home/dominique/Documentos/004-pseudocodigo.py
+/home/dominique/Documentos/tarea002.py
+/home/dominique/Documentos/condicional.py
+/home/dominique/Documentos/crear nueva base de datos.sql
+/home/dominique/Documentos/001-doctype.html
+/home/dominique/Documentos/011-realclientes.py
+/home/dominique/Documentos/try2.py
+/home/dominique/Documentos/002-elchivatosalta.py
+/home/dominique/Documentos/clientes.bin
+/home/dominique/Documentos/007-variablesprobables.py
+/home/dominique/Documentos/agenda.txt
+/home/dominique/Documentos/011-buscaenmapa.py
+/home/dominique/Documentos/entrar en mi gestor de base de datos.md.md
+/home/dominique/Documentos/001-funcion.py
+/home/dominique/Documentos/condicional002.py
+/home/dominique/Documentos/006-validacion.py
+/home/dominique/Documentos/servidor.py
+/home/dominique/Documentos/008-pseudocodigo.py
+/home/dominique/Documentos/002-error.py
+/home/dominique/Documentos/005-saltos.py
+/home/dominique/Documentos/010-minibuscador.py
+/home/dominique/Documentos/009-crearcliente.py
+/home/dominique/Documentos/estructura002.py
+/home/dominique/Documentos/mtrx.py
+/home/dominique/Documentos/003-magia.py
+/home/dominique/Documentos/006-saltosimpares.py
+/home/dominique/Documentos/005-funcion.py
+/home/dominique/Documentos/trydd.py
+/home/dominique/Documentos/002-funcion.py
+/home/dominique/Documentos/datos.bin
+/home/dominique/Documentos/009-sobreescribircadavez.py
+/home/dominique/Documentos/002-añadirsaltodelinea.py
+/home/dominique/Documentos/001-datos.sql
+/home/dominique/Documentos/006-funcion.py
+/home/dominique/Documentos/001-traer archivo.py
+/home/dominique/Documentos/008-leerpickle.py
+/home/dominique/Documentos/004-otrofallo.py
+/home/dominique/Documentos/matrix.py
+/home/dominique/Documentos/001-blog.html
+/home/dominique/Documentos/002-metodoset.py
+/home/dominique/Documentos/001-mio.py
+/home/dominique/Documentos/entrar en mi gestor de base de datos.md
+/home/dominique/Documentos/004-funcion.py
+/home/dominique/Documentos/004-combinacion.py
+/home/dominique/Documentos/001-listarcontenidodecarpeta.py
+/home/dominique/Documentos/010-recuperolosdatos.py
+/home/dominique/Documentos/002- intento sangrar parte 1.sql
+/home/dominique/Documentos/006- caja de seguridad.md
+/home/dominique/Documentos/001-ejercicios.html
+/home/dominique/Documentos/002-crear una tabla de datos.sql
+/home/dominique/Documentos/003-leemospropiedad.py
+/home/dominique/Documentos/005-recorrer.py
+/home/dominique/Documentos/002-traerjson.py
+/home/dominique/Documentos/004-classcliente.py
+/home/dominique/Documentos/003-crud.py
+/home/dominique/Documentos/002-crear una tabla de datoas.sql
+/home/dominique/Documentos/001-ejercicios.sql
+/home/dominique/Documentos/actividad002.py
+/home/dominique/Documentos/005-aplicaciondeproductos.py
+/home/dominique/Documentos/001-reglasgato.py
+/home/dominique/Documentos/009-voycreandoelcodigo.py
+/home/dominique/Documentos/009-pequeñoprograma.py
+/home/dominique/Documentos/__pycache__/funcionsuma.cpython-312.pyc

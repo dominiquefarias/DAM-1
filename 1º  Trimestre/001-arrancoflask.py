@@ -1,0 +1,9 @@
+from flask import Flask
+
+aplicacion = Flask(__name__)
+@aplicacion.route("/")
+def raiz():
+    return"Esto es html desde flask"
+    
+if __name__ == "__main__":
+    aplicacion.run(debug=True)

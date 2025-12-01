@@ -1,0 +1,15 @@
+INSERT INTO clientes VALUES(
+ NULL,
+ '12345678A',
+ 'JOACO MENDES',
+ 'LOS SANTOS',
+ 'GTRDF@GMAIL.COM'
+ );
+ 
+ INSERT INTO clientes VALUES(
+ NULL,
+ '12345678Z',
+ 'JOACO MENDES',
+ 'LOS SANTOS',
+ 'correo@bueno.com'
+ );

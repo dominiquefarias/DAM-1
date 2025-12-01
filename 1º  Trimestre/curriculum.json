@@ -1,0 +1,11 @@
+{
+    "datos personales": {
+        "nombre": "Dominique",
+        "apellidos": "Farias Osorio",
+        "email": "domi@gmail.com",
+        "telefono": "111222333",
+        "direccion":"La calle de Domi"
+    },
+    "experiencia": "",
+    "formacion": ""
+}
