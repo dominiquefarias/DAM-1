@@ -13,19 +13,19 @@ En este ejercicio se me pide que utilice listas para agrupar varios datos y lueg
 
 ---
 
--Primero creo la lista de elementos musicales con generos de musica en este caso me pidieron al menos tres
+Primero creo la lista de elementos musicales con generos de musica en este caso me pidieron al menos tres
 
 ```
 lista_musical = ["Rock", "Pop", "Reggaeton"]
 ```
 
--Despues me piden añadir un nuevo elemento a la lista utilizando append()
+Despues me piden añadir un nuevo elemento a la lista utilizando append()
 
 ```
 lista_musical.append("Indie")
 ```
 
--Y ahora recorro y muestro los elementos de la lista con un bucle for
+Y ahora recorro y muestro los elementos de la lista con un bucle for
 
 ```
 print("Lista musical")
@@ -33,19 +33,19 @@ for genero in lista_musical:
     print(genero)
 ```
 
--Ahora modifico un elemento en la lista y lo sobreescribo
+Ahora modifico un elemento en la lista y lo sobreescribo
 
 ```
 lista_musical[1] = "Trap"
 ```
 
--Ahora se me pide que elimine el último elemento de la lista usando pop()
+Ahora se me pide que elimine el último elemento de la lista usando pop()
 
 ```
 lista_musical.pop()
 ```
 
--Ahora hago un print para mostrar que lo anterior se cumple
+Ahora hago un print para mostrar que lo anterior se cumple
 
 ```
 print("Lista final")
