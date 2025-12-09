@@ -2,14 +2,14 @@
 <html lang="es">
 
 <head>
-    <title>El jocarsa - Noticias tecnológicas</title>
+    <title>Domasa - Noticias tecnológicas</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
     <header>
-        <h1>El jocarsa</h1>
+        <h1>Domasa</h1>
         <h2>Noticias tecnológicas</h2>
     </header>
     <main>
