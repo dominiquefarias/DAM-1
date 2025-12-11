@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión: Conexión Lunar</title>
+    <style>
+        :root {
+            --space-bg: #0a0a2a;
+            --accent-color: #4facfe;
+            --danger-color: #ff416c;
+            --success-color: #00b09b;
+            --text-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--space-bg);
+            background-image:
+                radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px),
+                radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 20px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .game-container {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
+            width: 90%;
+            max-width: 600px;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+        }
+
+        /* --- SECCIÓN VISUAL DEL VIAJE --- */
+        .journey-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .progress-container {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            background-color: #1a1a3a;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 2px solid #3a3a6a;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            /* Esto cambiará con JS */
+            background: linear-gradient(90deg, var(--accent-color), var(--success-color));
+            border-radius: 15px;
+            transition: width 1s ease-in-out;
+            position: relative;
+        }
+
+        .spaceship-icon {
+            position: absolute;
+            right: -15px;
+            /* Ajustar para centrar la nave en la punta */
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            font-size: 1.5rem;
+            transition: right 1s ease-in-out;
+        }
+
+        .stats {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* --- SECCIÓN DE INPUT --- */
+        .control-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, var(--accent-color), var(--success-color));
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 200, 150, 0.4);
+        }
+
+        button:disabled {
+            background: #555;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* --- SECCIÓN DE MENSAJES (LOG) --- */
+        #message-log {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.3);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid transparent;
+        }
+
+        .log-success {
+            border-left-color: var(--success-color) !important;
+            color: #aaffaa;
+        }
+
+        .log-danger {
+            border-left-color: var(--danger-color) !important;
+            color: #ffaaaa;
+        }
+
+        .log-neutral {
+            border-left-color: #aaa !important;
+            color: #ddd;
+        }
+
+        .log-win {
+            border-left-color: gold !important;
+            color: gold;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🚀 Misión: Conexión Lunar 🌕</h1>
+
+    <div class="game-container">
+
+        <div class="journey-display">
+            <span>🌍 Tierra</span>
+            <span>🌕 Luna</span>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar">
+                <span class="spaceship-icon">🚀</span>
+            </div>
+        </div>
+
+        <div class="stats">
+            Distancia recorrida: <span id="distanceDisplay">0</span> km / 384.400 km
+        </div>
+
+        <div id="message-log" class="log-neutral">
+            🖥️ COMPUTADORA: Motores listos. Inserte una actitud o acción saludable para la relación para iniciar el
+            despegue.
+        </div>
+
+        <div class="control-panel">
+            <input type="text" id="fuelInput" placeholder="Ej: Escuchar con atención, tener paciencia...">
+            <button id="launchBtn" onclick="processFuel()">Enviar Combustible</button>
+        </div>
+
+    </div>
+
+    <script>
+        // --- VARIABLES DEL JUEGO ---
+        const totalDistanceKm = 384400;
+        let currentDistance = 0;
+        const kmPerGoodAnswer = 46000; // Unos 8-9 pasos para ganar
+        let gameWon = false;
+
+        // --- BASE DE DATOS DE "COMBUSTIBLE" ---
+        // El juego busca estas palabras clave en la frase del usuario.
+
+        // Combustible BUENO (relación sana)
+        const goodFuelKeywords = [
+            "escuchar", "comunicacion", "hablar", "respeto", "confianza",
+            "paciencia", "empatia", "apoyo", "perdonar", "tiempo juntos",
+            "reir", "lealtad", "honestidad", "cariño", "espacio personal",
+            "validar", "negociar", "ceder", "admiracion", "detalles"
+        ];
+
+        // Combustible MALO (tóxico/dañino)
+        const badFuelKeywords = [
+            "gritar", "insultar", "pegar", "celos", "controlar",
+            "manipular", "mentir", "ignorar", "ley del hielo", "culpar",
+            "egoísmo", "amenazar", "espiar", "revisar el movil", "humillar"
+        ];
+
+
+        // --- FUNCIONES DEL JUEGO ---
+
+        function processFuel() {
+            if (gameWon) return;
+
+            const inputField = document.getElementById('fuelInput');
+            const messageLog = document.getElementById('message-log');
+            const launchBtn = document.getElementById('launchBtn');
+
+            // Limpiar y normalizar el texto del usuario (a minúsculas)
+            let userInput = inputField.value.toLowerCase().trim();
+
+            if (userInput === "") {
+                updateLog("🖥️ COMPUTADORA: No detecto combustible. Escribe algo antes de enviar.", "neutral");
+                return;
+            }
+
+            launchBtn.disabled = true; // Evitar doble click mientras procesa
+            inputField.value = ""; // Limpiar el campo
+
+            // 1. Primero buscamos si hay algo MALO (prioridad de seguridad)
+            let foundBad = badFuelKeywords.find(keyword => userInput.includes(keyword));
+
+            if (foundBad) {
+                handleBadFuel(foundBad);
+            }
+            // 2. Si no hay nada malo, buscamos algo BUENO
+            else {
+                let foundGood = goodFuelKeywords.find(keyword => userInput.includes(keyword));
+                if (foundGood) {
+                    handleGoodFuel(foundGood);
+                } else {
+                    // No se encontraron palabras clave conocidas
+                    updateLog("🖥️ COMPUTADORA: Combustible desconocido. Intenta ser más específico sobre qué hace bien a la pareja.", "neutral");
+                }
+            }
+
+            // Reactivar botón después de un pequeño retraso visual
+            setTimeout(() => { if (!gameWon) launchBtn.disabled = false; }, 500);
+        }
+
+
+        function handleGoodFuel(keywordFound) {
+            currentDistance += kmPerGoodAnswer;
+
+            // Comprobar si hemos llegado
+            if (currentDistance >= totalDistanceKm) {
+                currentDistance = totalDistanceKm;
+                gameWon = true;
+                updateVisuals();
+                updateLog("🎉 ¡MISIÓN CUMPLIDA! Los motores han funcionado al máximo gracias a acciones sanas. Han llegado a la Luna y construido una conexión sólida.", "win");
+                document.getElementById('fuelInput').disabled = true;
+                document.getElementById('launchBtn').innerText = "Conexión Establecida";
+            } else {
+                updateVisuals();
+                // Mensajes de éxito aleatorios
+                const successMessages = [
+                    `¡Motores a potencia! "${keywordFound}" es vital para avanzar.`,
+                    `¡Excelente combustible! La relación se fortalece con eso.`,
+                    `💨✨ ¡Avanzando! Esa actitud nos acerca al objetivo.`,
+                ];
+                updateLog("🖥️ " + successMessages[Math.floor(Math.random() * successMessages.length)], "success");
+            }
+        }
+
+
+        function handleBadFuel(keywordFound) {
+            updateVisuals(); // La distancia no cambia, pero actualiza la vista
+
+            // Mensajes de error específicos
+            let warningMsg = "";
+            switch (keywordFound) {
+                case "celos": case "controlar": case "espiar": case "revisar el movil":
+                    warningMsg = "💥⚠️ ¡ALERTA DE MOTOR! El control y la desconfianza apagan el amor. La nave no puede avanzar sin libertad.";
+                    break;
+                case "gritar": case "insultar": case "humillar": case "pegar": case "amenazar":
+                    warningMsg = "💥⚠️ ¡DAÑO ESTRUCTURAL! La falta de respeto y la agresión destruyen la nave. Misión en peligro crítico.";
+                    break;
+                case "mentir": case "manipular":
+                    warningMsg = "💥⚠️ ¡FALLO DE SISTEMAS! Sin la verdad, la navegación es imposible. Estamos perdidos.";
+                    break;
+                case "ignorar": case "ley del hielo":
+                    warningMsg = "💥⚠️ ¡MOTORES CONGELADOS! El silencio como castigo detiene todo progreso.";
+                    break;
+                default:
+                    warningMsg = `💥⚠️ ¡ERROR! La actitud "${keywordFound}" es tóxica para el viaje. La nave se ha estancado.`;
+            }
+            updateLog("🖥️ " + warningMsg, "danger");
+        }
+
+
+        function updateVisuals() {
+            // Calcular porcentaje
+            let percentage = (currentDistance / totalDistanceKm) * 100;
+
+            // Actualizar la barra de progreso y el icono
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = percentage + "%";
+
+            // Actualizar texto de distancia con formato de miles (ej. 100.000)
+            document.getElementById('distanceDisplay').innerText = currentDistance.toLocaleString('es-ES');
+        }
+
+        function updateLog(message, type) {
+            const logElement = document.getElementById('message-log');
+            logElement.innerText = message;
+            // Resetear clases y añadir la nueva
+            logElement.className = "";
+            logElement.classList.add("log-" + type);
+        }
+
+        // Inicializar vista
+        updateVisuals();
+
+    </script>
+</body>
+
+</html>
