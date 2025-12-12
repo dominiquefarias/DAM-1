@@ -20,7 +20,7 @@
             <h3><?= $fila['nombre_producto'] ?></h3>
             <p><?= $fila['precio'] ?></p>
             <p><?= $fila['descripcion'] ?></p>
-            <a href="comprar.php">Comprar</a>
+            <a href="producto.php?id=<?= $fila['id'] ?>">Comprar</a> <!-- NUEVO -->
         </article>
         <?php
     }
@@ -43,8 +43,16 @@
 
     #catalogo article .imagen {
         background: darkorchid;
-        height: 200px;
+        height: 100px;
         border-radius: 5px 5px 0px 0px;
+    }
+
+    #catalogo article a {
+        background: darkorchid;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
     }
 </style>
 
