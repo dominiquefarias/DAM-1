@@ -8,7 +8,7 @@ La combinación entre ambos elementos debe estar libre
 (Nadie antes debe haber registrado esa combinación)
 
 Ejemplo:
-En mi caso: jocarsa = nombre dominio
+En mi caso: Domasa = nombre dominio
 En mi caso: .com = Extensión que quiere decir comercial
 
 Los dominios son mnemónicos (evitan que tengamos que recordar

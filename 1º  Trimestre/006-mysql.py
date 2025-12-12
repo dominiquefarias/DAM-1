@@ -14,7 +14,7 @@ cursor.execute('''
     "12345678Z",
     "Jose",
     "Sanches Garrido",
-    "info@jocarsa.com",
+    "info@Domasa.com",
     "La calle de Jose"
   );
 ''')

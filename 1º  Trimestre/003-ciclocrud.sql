@@ -1,12 +1,12 @@
 INSERT INTO clientes VALUES(
-	NULL:
+	NULL,
 	"Dominique",
 	"Farias Osorio",
-	"Info@jocarsa.com"
+	"Info@Domasa.com"
 );
 
 SELECT * FROM clientes;
 
 UPDATE clientes
-SET email = 'info@jocarsacarratala.com'
+SET email = 'info@Domasacarratala.com'
 WHERE identificador

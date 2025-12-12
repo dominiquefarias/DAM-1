@@ -19,7 +19,7 @@ cursor.execute('''
 # Insertamos un registro (es mejor especificar columnas)
 cursor.execute('''
     INSERT INTO clientes (nombre, apellidos, email) VALUES (
-        'Jorge', 'Garcia Lopez', 'jorge@jocarsa.com'
+        'Jorge', 'Garcia Lopez', 'jorge@Domasa.com'
     );
 ''')
 

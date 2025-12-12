@@ -6,8 +6,8 @@ class Cliente():
         
 clientes = []
 
-clientes.append(Cliente("Jose vicente","info@jocarsa.com"))
-clientes.append(Cliente("Juan","asios@jocarsa.com"))
+clientes.append(Cliente("Jose vicente","info@Domasa.com"))
+clientes.append(Cliente("Juan","asios@Domasa.com"))
 
 archivo = open("clientes.bin","wb")
 pickle.dump(clientes,archivo)
