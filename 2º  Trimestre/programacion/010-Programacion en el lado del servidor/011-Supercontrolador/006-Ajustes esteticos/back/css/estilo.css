@@ -9,6 +9,7 @@ body {
 body {
     display: flex;
     font-family: sans-serif;
+    overflow: scroll;
 }
 
 nav {
