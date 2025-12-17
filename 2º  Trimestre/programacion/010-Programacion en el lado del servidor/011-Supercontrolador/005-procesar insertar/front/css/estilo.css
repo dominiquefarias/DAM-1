@@ -1,0 +1,14 @@
+body,
+html {
+    background: rgb(232, 149, 253);
+    font-family: sans-serif;
+}
+
+header,
+main,
+footer {
+    width: 800px;
+    background: white;
+    padding: 50px;
+    margin: auto;
+}
