@@ -19,6 +19,10 @@
         }
     }
     ?>
+    <div class='control_formulario'>
+        <label>Insertar</label>
+        <input type="submit">
+    </div>
 </form>
 <style>
     form {
