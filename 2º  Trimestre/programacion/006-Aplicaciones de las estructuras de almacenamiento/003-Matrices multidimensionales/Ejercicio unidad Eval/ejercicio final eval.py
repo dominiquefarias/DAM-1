@@ -9,18 +9,13 @@ import pickle
 agenda = []
 
 while True:
-	print("Nuevo Contacto")
 	nombre = input("Dime tu nombre: ")
 	apellidos = input("Dime tus apellidos: ")
 	email = input("Dime tu email: ")
 	telefono = input("Dime tu telefono: ")
-	
-	# Añado a la agenda
-	agenda.append([nombre, apellidos, email, telefono])
-	
-	# Guardo en archivo
-	archivo_escritura = open("agenda.bin", "wb")
-	pickle.dump(agenda, archivo_escritura)
-	archivo_escritura.close()
-	
-	print("Contacto guardado.")
+		
+	agenda.append([nombre,apellidos,email,telefono])
+	print(agenda)
+	archivo = open("agenda.bin","wb")
+	pickle.dump(agenda,archivo)
+	archivo.close

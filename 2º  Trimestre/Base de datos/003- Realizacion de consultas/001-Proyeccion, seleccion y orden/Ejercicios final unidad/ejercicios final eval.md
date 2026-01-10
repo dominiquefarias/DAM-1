@@ -1,4 +1,4 @@
-
+En este ejercicio se practican operaciones fundamentales en sql desde la creación de la base de datos y la selección del entorno de trabajo hasta la definición de estructuras y la inserción de datos. Se crea una tabla llamada clientes con campos para almacenar información personal, se insertan múltiples registros de forma simultánea, y se realizan consultas avanzadas para ordenar los resultados por edad y renombrar las columnas mediante alias, comprendiendo así cómo sql permite no solo almacenar la información sino también recuperarla y presentarla de manera organizada y legible
 
 ---
 
@@ -145,3 +145,5 @@ Lo cual me da los siguientes resultados
 ```
 
 ---
+
+En conclusión este ejercicio me ha permitido verificar la importancia de la presentación de datos en SQL a través de las consultas SELECT combinadas con cláusulas de ordenamiento y el uso de alias se ha demostrado que no basta con almacenar información en la base de datos sino que es crucial saber extraerla y formatearla adecuadamente esto transforma simples datos brutos en reportes ordenados y comprensibles para el usuario final

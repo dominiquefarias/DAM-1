@@ -10,7 +10,7 @@ persona = [
 
 persona = {
 	"nombre":"Dominique",
-  "apellidos":"Farias",
-  "correo":"domi@mail.com",
-  "edad":19
+	"apellidos":"Farias",
+	"correo":"domi@mail.com",
+	"edad":19
 }

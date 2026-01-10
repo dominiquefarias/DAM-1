@@ -1,3 +1,4 @@
+En este ejercicio se practican operaciones aritméticas en sql utilizando la sentencia SELECT para generar columnas calculadas en tiempo de ejecución se trabaja sobre la tabla clientes realizando transformaciones matemáticas directas en el campo de la edad desde sumas y restas para proyectar valores futuros o pasados hasta multiplicaciones y divisiones para escalar los datos comprendiendo así cómo sql permite manipular y procesar valores numéricos dinámicamente sin alterar la información original almacenada
 
 ---
 
@@ -111,3 +112,6 @@ Que se veria asi:
 10 rows in set (0.000 sec)
 ```
 
+---
+
+En conclusión este ejercicio me ha permitido verificar la importancia de la manipulación de datos en SQL a través de las consultas SELECT combinadas con operadores aritméticos se ha demostrado que no basta con almacenar información en la base de datos sino que es crucial saber extraerla y transformarla adecuadamente esto transforma simples datos brutos en valores calculados y procesados para el usuario final
