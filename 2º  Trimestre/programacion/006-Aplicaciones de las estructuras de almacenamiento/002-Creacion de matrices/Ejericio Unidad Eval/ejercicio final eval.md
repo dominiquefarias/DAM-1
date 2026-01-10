@@ -13,13 +13,13 @@ Restricciones
 No uses funciones ni métodos que no hayas visto en clase.
 Solo puedes usar el módulo pickle para guardar y cargar los datos.
 '''
-
+En este ejercicio se me pide crear un programa que permita gestionar una lista de comidas este programa permite al usuario añadir platos y ver su lista actual mediante un menú además implemento una la capacidad de exportar y guardar el menú creado en un archivo externo llamado datos.bin utilizando la librería pickle logrando así almacenar la información
 
 ---
 
 Primero importo el modulo pickle para poder guardar los datos en un archivo binario
 
-```python
+```
 import pickle
 ```
 
@@ -73,3 +73,4 @@ Ahora creo una condicion para que si el usuario elige la opcion 3 guarde la list
 
 ---
 
+Como conclusion he construido un programa funcional que integra la interacción con el usuario y la gestión de archivos a través de un bucle while y condicionales creando un menu dinámico que permite al usuario introducir comidas y listarlas además de guardarlas en un archivo binario utilizando la librería pickle lo que asegura que la información perdure este programa sirve para aprender a crear una base de para la mayoria de programas utilizando CRUD

@@ -1,4 +1,4 @@
--- sudo mysql -u rooot -p
+#sudo mysql -u rooot -p
 
 USE clientes;
  
