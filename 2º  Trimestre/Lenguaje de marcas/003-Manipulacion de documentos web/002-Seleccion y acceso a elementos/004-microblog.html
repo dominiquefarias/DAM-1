@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>JavaScript</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <header><h1>El blog de Domi</h1></header>
-        <main></main>
-        <footer>(c) 2025 Dominique Farias Osorio</footer>
-        <script>
-            const articulos = [
-                "Primer articulo", "segundo articulo", "tercer articulo"
-            ];
-            const contenedor = document.querySelector("main");
-            for(let i = 0;i<articulos.length;i++){
-                contenedor.innerHTML += "<h3>"+articulos[i]+"</h3>";
-            }
-        </script>
-    </body>
+
+<head>
+    <title>JavaScript</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <header>
+        <h1>El blog de Domi</h1>
+    </header>
+    <main></main>
+    <footer>(c) 2025 Dominique Farias Osorio</footer>
+    <script>
+        const articulos = [
+            "Primer articulo", "segundo articulo", "tercer articulo"
+        ];
+        const contenedor = document.querySelector("main");
+        for (let i = 0; i < articulos.length; i++) {
+            contenedor.innerHTML += "<h3>" + articulos[i] + "</h3>";
+        }
+    </script>
+</body>
+
 </html>
