@@ -1,3 +1,4 @@
+En este ejercicio combino html con javascript sobre todo me centro en las fechas asi como tambien en las funciones parametrizadas el objetivo es crear un programa que procese datos estos datos son la fecha actual y un saludo personalizado y muestre los resultados directamente en la consola del navegador mediante console.log, en lugar de imprimirlo en el cuerpo de la página
 
 ---
 
@@ -32,3 +33,5 @@ Ahora cierro el body y el html
 ```
 
 ---
+
+En conclusión he aprendido a conectar html con javascript de forma en la que he podido comprobar que puedo guardar la fecha de hoy en una variable y usarla cuando quiera lo más útil ha sido entender cómo funciona el return mi función prepara el saludo mezclando el nombre y la edad y luego entrega ese texto listo para que el console.log lo muestre es como tener una pequeña fábrica de saludos dentro de mi código
