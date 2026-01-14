@@ -11,7 +11,7 @@ def calculaDoble():
 			print(numero*2)
 		except:
 			for i in range(0,len(numeros_etiquetas)):
-			if numeros == numeros_etiquetas[i]:
+				if numeros == numeros_etiquetas[i]:
 			print(i*2)
 		
 calculaDoble()

@@ -20,16 +20,16 @@ CREATE TABLE IF NOT EXISTS blog (
 INSERT INTO blog (titulo, contenido, autor) VALUES
 ('Bienvenidos a mi nuevo blog',
  'Este es el primer artículo del blog. Aquí compartiré tutoriales, noticias y recursos útiles sobre programación y tecnología.',
- 'José Vicente Carratalá'),
+ 'Dominique Farias'),
 
 ('Cómo instalar PHP y Apache en Ubuntu',
  'En este artículo aprenderás a instalar un entorno AMP en Ubuntu utilizando los repositorios oficiales y configurando los módulos necesarios.',
- 'José Vicente Carratalá'),
+ 'Dominique Farias'),
 
 ('Introducción a SQL para principiantes',
  'SQL es un lenguaje fundamental para trabajar con bases de datos. En esta guía veremos las instrucciones básicas: SELECT, INSERT, UPDATE y DELETE.',
- 'Administrador'),
+ 'Dominique Farias'),
 
 ('Consejos para mejorar tu productividad como programador',
  'Organizar el tiempo, dividir el trabajo en tareas pequeñas y mantener un entorno ordenado puede ayudarte a avanzar más rápidamente en tus proyectos.',
- 'Administrador');
+ 'Dominique Farias');
