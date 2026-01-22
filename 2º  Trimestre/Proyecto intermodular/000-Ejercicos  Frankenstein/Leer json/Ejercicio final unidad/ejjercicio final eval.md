@@ -1,0 +1,20 @@
+Primero comienzo creand
+```
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Plantilla fetch</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      fetch("curriculum.json")
+        .then(function(respuesta) {
+          return respuesta.json();
+        })
+        .then(function(datos) {
+          console.log(datos);
+        });
+    </script>
+  </body>
+</html>
