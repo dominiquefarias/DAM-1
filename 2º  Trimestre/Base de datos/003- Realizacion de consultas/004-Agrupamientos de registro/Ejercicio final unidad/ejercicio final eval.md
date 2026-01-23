@@ -1,224 +1,73 @@
+# Ejercicio Final: Agrupamientos y Visualización
 
-En este ejercicio voy a profundizar en el agrupamiento de registros y su visualización mediante python y sql el objetivo es analizar la tabla de productos desde tres perspectivas diferentes por categoría por color y por nivel de stock para esto conectaré Python con la base de datos ejecutaré consultas de agrupación y finalmente representaré los datos visualmente usando la librería matplotlib
+Este documento contiene la solución para los ejercicios de agrupación y visualización de productos.
+
+## 1. Configuración de la Base de Datos
+Para ejecutar estos ejercicios, primero necesitamos una tabla de `productos` con datos. He creado el archivo `setup_database.sql` con el siguiente contenido:
+
+```sql
+-- setup_database.sql
+DROP TABLE IF EXISTS productos;
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    categoria VARCHAR(50),
+    color VARCHAR(30),
+    stock INT
+);
+
+INSERT INTO productos (nombre, categoria, color, stock) VALUES
+('Camiseta Básica', 'Ropa', 'Blanco', 100),
+('Pantalón Vaquero', 'Ropa', 'Azul', 50),
+('Zapatillas Running', 'Calzado', 'Negro', 30),
+('Camisa Formal', 'Ropa', 'Blanco', 40),
+('Calcetines Deportivos', 'Ropa', 'Blanco', 200),
+('Chaqueta Cuero', 'Ropa', 'Negro', 15),
+('Zapatos Vestir', 'Calzado', 'Marrón', 25),
+('Gorra', 'Accesorios', 'Rojo', 60),
+('Bufanda', 'Accesorios', 'Azul', 45),
+('Cinturón', 'Accesorios', 'Negro', 80),
+('Vestido Verano', 'Ropa', 'Rojo', 35),
+('Sandalias', 'Calzado', 'Marrón', 40),
+('Botas Invierno', 'Calzado', 'Negro', 20),
+('Bolso Mano', 'Accesorios', 'Rojo', 25),
+('Reloj Deportivo', 'Accesorios', 'Negro', 10);
+```
+
+**Instrucción:** Ejecuta este script el tu cliente de MySQL (Workbench, terminal, etc.) para crear la tabla y los datos.
+
+## 2. Categorías de Productos (Gráfico de Pastel)
+Script: `01_categorias.py`
+Consulta SQL utilizada:
+```sql
+SELECT categoria, COUNT(categoria) as numero 
+FROM productos 
+GROUP BY categoria 
+ORDER BY numero DESC;
+```
+Este script conecta a la base de datos, obtiene el conteo por categoría y genera un gráfico de pastel.
+
+## 3. Colores de Productos (Gráfico de Pastel con Colores Reales)
+Script: `02_colores.py`
+Consulta SQL utilizada:
+```sql
+SELECT color, COUNT(color) as numero 
+FROM productos 
+GROUP BY color 
+ORDER BY numero DESC;
+```
+Este script mapea los nombres de colores en la base de datos (ej. 'Rojo') a colores visuales en el gráfico (ej. 'red').
+
+## 4. Stock de Productos (Gráfico de Barras)
+Script: `03_stock.py`
+Consulta SQL utilizada:
+```sql
+SELECT stock, COUNT(*) as numero 
+FROM productos 
+GROUP BY stock 
+ORDER BY numero DESC;
+```
+Este script muestra cuántos productos tienen el mismo nivel de stock.
 
 ---
-
-Primero comienzo agrupando los productos por categoría para ver cuántos hay de cada tipo
-
-```
-
-SELECT
-COUNT(categoria) AS numero,
-categoria
-FROM productos
-GROUP BY categoria
-ORDER BY numero DESC;
-
-```
-Y el resultado es:
-
-```
-
-+--------+-------------+
-| numero | categoria   |
-+--------+-------------+
-|     10 | Ropa        |
-|      8 | Tecnología  |
-|      5 | Hogar       |
-|      5 | Deportes    |
-|      5 | Decoración  |
-|      5 | Dormitorio  |
-|      5 | Herramientas|
-+--------+-------------+
-7 rows in set (0.005 sec)
-
-```
-Ahora utilizo el siguiente código donde conecto python con la base de datos y ejecuto la consulta de agrupación para generar un gráfico de las categorías
-
-```
-
-import mysql.connector
-import matplotlib.pyplot as pt
-
-conexion = mysql.connector.connect(
-host="localhost",
-
-user="dominique3",
-
-password="Domi123$",
-
-database="portafolioexamen"
-
-)
-
-cursor = conexion.cursor()
-cursor.execute('''
-SELECT
-COUNT(categoria) AS numero,
-categoria
-FROM productos
-GROUP BY categoria
-ORDER BY numero DESC;
-''');
-
-filas = cursor.fetchall()
-cantidades = []
-etiquetas = []
-for fila in filas:
-cantidades.append(fila[0])
-etiquetas.append(fila[1])
-
-pt.pie(cantidades, labels=etiquetas)
-pt.show()
-
-```
-
-Ahora voy a agrupar los productos por color para analizar la distribución del inventario
-
-```
-
-SELECT
-COUNT(color) AS numero,
-color
-FROM productos
-GROUP BY color
-ORDER BY numero DESC;
-
-```
-Y el resultado es:
-
-```
-
-+--------+---------+
-| numero | color   |
-+--------+---------+
-|     12 | Negro   |
-|      9 | Blanco  |
-|      5 | Rojo    |
-|      4 | Azul    |
-|      4 | Gris    |
-|      2 | Verde   |
-|      2 | Marrón  |
-|      1 | Plateado|
-|      1 | Dorado  |
-|      1 | Amarillo|
-+--------+---------+
-10 rows in set (0.004 sec)
-
-```
-Ahora utilizo Python para conectar con la base de datos y ejecutar la consulta de agrupación para visualizar estos colores en un gráfico
-
-```
-
-import mysql.connector
-import matplotlib.pyplot as pt
-
-conexion = mysql.connector.connect(
-host="localhost",
-
-user="dominique3",
-
-password="Domi123$",
-
-database="portafolioexamen"
-
-)
-
-cursor = conexion.cursor()
-cursor.execute('''
-SELECT
-COUNT(color) AS numero,
-color
-FROM productos
-GROUP BY color
-ORDER BY numero DESC;
-''');
-
-filas = cursor.fetchall()
-cantidades = []
-etiquetas = []
-for fila in filas:
-cantidades.append(fila[0])
-etiquetas.append(fila[1])
-
-pt.pie(cantidades, labels=etiquetas)
-pt.show()
-
-```
-
-Finalmente agrupo los productos por su nivel de stock para ver cuántos productos tienen la misma disponibilidad
-
-```
-
-SELECT
-COUNT(stock) AS numero,
-stock
-FROM productos
-GROUP BY stock
-ORDER BY numero DESC;
-
-```
-Y el resultado en MySQL es:
-
-```
-
-+--------+-------+
-| numero | stock |
-+--------+-------+
-|      3 |    20 |
-|      3 |    25 |
-|      3 |    15 |
-|      2 |    10 |
-|      2 |    30 |
-|      2 |    40 |
-|      2 |    60 |
-|      1 |   100 |
-|      1 |    50 |
-+--------+-------+
-15 rows in set (0.005 sec)
-
-```
-Ahora utilizo Python para conectar con la base de datos y ejecutar la consulta de agrupación para crear un gráfico de barras que represente esta distribución
-
-```
-
-import mysql.connector
-import matplotlib.pyplot as pt
-
-conexion = mysql.connector.connect(
-host="localhost",
-
-user="dominique3",
-
-password="Domi123$",
-
-database="portafolioexamen"
-
-)
-
-cursor = conexion.cursor()
-cursor.execute('''
-SELECT
-COUNT(stock) AS numero,
-stock
-FROM productos
-GROUP BY stock
-ORDER BY numero DESC;
-''');
-
-filas = cursor.fetchall()
-cantidades = []
-etiquetas = []
-for fila in filas:
-cantidades.append(fila[0])
-etiquetas.append(str(fila[1])) # Convierto a string para la etiqueta
-
-pt.bar(etiquetas, cantidades)
-pt.show()
-
-```
-
----
-
-En conclusión este ejercicio me ha permitido entender cómo el agrupamiento de registros mediante sql combinado con la visualización de datos en python es una herramienta fundamental para las empresas sobre todo dado que esta muestra graficos en base a los datos que estn en la base de datos y en el stock 
-
+**Nota:** Asegúrate de actualizar las credenciales (`user`, `password`, `database`) en cada archivo `.py` antes de ejecutarlos.
