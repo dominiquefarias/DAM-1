@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="Domicarrusel">
+        <img src="imagen1.png" alt="Texto alternativo">
+        <img src="imagen1.png" alt="Texto alternativo">
+        <img src="imagen1.png" alt="Texto alternativo">
+        <img src="imagen1.png" alt="Texto alternativo">
+        <img src="imagen1.png" alt="Texto alternativo">
+        <img src="imagen1.png" alt="Texto alternativo">
+        <img src="imagen1.png" alt="Texto alternativo">
+        <img src="imagen1.png" alt="Texto alternativo">
+    </div>
+    <style>
+        .Domicarrusel {
+            width: 960px;
+            height: 540px;
+        }
+
+        .Domicarrusel section {
+            width: 6720px;
+            display: flex;
+            left: 0px;
+            transition: all 1s;
+        }
+    </style>
+    <script>
+        // Cojo el contenedor externo (es un solo elemento)
+        let contenedor = document.querySelector(".Domicarrusel");
+        // Cojo las imagenes de dentro (es un array de elementos)
+        let contenido = document.querySelectorAll(".Domicarrusel img")
+        // Para cada una de las imagenes
+        contenido.forEach(function (elemento) {
+            // Quito la imagen del html
+            elemento.remove()
+        })
+        // Creo un nuevo contenedor que es una seccion
+        let nuevo_contenedor = document.createElement("section")
+        // Al contenedor antiguo le añado el nuevo contenedor
+        contenedor.appendChild(nuevo_contenedor)
+        // Dentro del nuevo contenedor meto las imagenes una a una
+        contenido.forEach(function (elemento) {
+            nuevo_contenedor.appendChild(elemento)
+        })
+        // Ahora creo dos botones
+        let botonatras = document.createElement("button")
+        botonatras.textContent = "<-"
+        contenedor.appendChild(botonatras)
+        let botondelante = document.createElement("button")
+        botondelante.textContent = "->"
+        contenedor.appendChild(botondelante)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div class="Domicarrusel">
+        <img src="imagen1.jpg" alt="Texto alternativo">
+        <img src="imagen1.jpg" alt="Texto alternativo">
+        <img src="imagen1.jpg" alt="Texto alternativo">
+        <img src="imagen1.jpg" alt="Texto alternativo">
+        <img src="imagen1.jpg" alt="Texto alternativo">
+        <img src="imagen1.jpg" alt="Texto alternativo">
+        <img src="imagen1.jpg" alt="Texto alternativo">
+        <img src="imagen1.jpg" alt="Texto alternativo">
+    </div>
+    <script>
+        // Cojo el contenedor externo (es un solo elemento)
+        let contenedor = document.querySelector(".Domicarrusel");
+        // Cojo las imagenes de dentro (es un array de elementos)
+        let contenido = document.querySelectorAll(".Domicarrusel img")
+        // Para cada una de las imagenes
+        contenido.forEach(function (elemento) {
+            // Quito la imagen del html
+            elemento.remove()
+        })
+        console.log(contenido)
+    </script>
+</body>
+
+</html>
