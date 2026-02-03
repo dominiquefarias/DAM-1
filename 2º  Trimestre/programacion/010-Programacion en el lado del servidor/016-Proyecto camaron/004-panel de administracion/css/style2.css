@@ -1,0 +1,138 @@
+/* Configuración General */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3eff5;
+    /* Fondo lila muy suave */
+    color: #4a4a4a;
+}
+
+/* Barra Lateral (Nav) */
+nav {
+    flex: 0 0 200px;
+    background-color: #d8bfd8;
+    /* Thistle (Lila pastel) */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 12px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+nav a {
+    text-decoration: none;
+    color: #5e4b5e;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: white;
+    color: #a084a0;
+    transform: scale(1.05);
+}
+
+/* Contenedor Principal */
+main {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    /* Alinea hijos (tabla y form) de lado a lado */
+    flex-direction: row;
+    gap: 25px;
+    align-items: flex-start;
+    /* Evita que el form se estire verticalmente de forma rara */
+    overflow-x: auto;
+}
+
+/* Tabla Estilizada */
+table {
+    flex: 3;
+    /* Toma 3 partes del espacio */
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(180, 150, 180, 0.15);
+    min-width: 600px;
+}
+
+thead {
+    background-color: #b19cd9;
+    color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f0e6f0;
+}
+
+tr:hover {
+    background-color: #fbf7ff;
+}
+
+form {
+    flex: 1;
+    /* Toma 1 parte del espacio */
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(180, 150, 180, 0.15);
+    display: flex;
+    flex-direction: column;
+    /* Inputs uno debajo de otro */
+    gap: 10px;
+    min-width: 250px;
+    position: sticky;
+    /* Se queda fijo al hacer scroll si la tabla es larga */
+    top: 30px;
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #e0d6e0;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+input:focus {
+    border-color: #b19cd9;
+    background-color: #fbfaff;
+}
+
+/* Botón enviar (ocupa toda la fila si es necesario) */
+input[type="submit"] {
+    background-color: #b19cd9;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    padding: 12px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #967bb6;
+}
+
+/* Placeholder en lila suave */
+::placeholder {
+    color: #c0b0c0;
+}
