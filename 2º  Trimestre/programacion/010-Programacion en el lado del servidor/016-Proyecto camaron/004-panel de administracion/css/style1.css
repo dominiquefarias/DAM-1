@@ -1,0 +1,143 @@
+/* Configuración General */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3eff5;
+    /* Fondo lila muy suave */
+    color: #4a4a4a;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+    background-color: #b19cd9;
+    /* Lila pastel */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+/* Barra de Filtros (Nav) */
+nav {
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid #d8bfd8;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Estilo de Inputs y Select */
+select,
+input[type="number"] {
+    padding: 10px 15px;
+    border: 2px solid #e0d6e0;
+    border-radius: 8px;
+    outline: none;
+    color: #5e4b5e;
+    transition: border-color 0.3s;
+}
+
+select:focus,
+input:focus {
+    border-color: #b19cd9;
+}
+
+input[type="submit"] {
+    background-color: #b19cd9;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+    background-color: #967bb6;
+}
+
+/* Contenedor de Resultados */
+main {
+    flex: 1;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjetas de Vivienda */
+article {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(180, 150, 180, 0.15);
+    border-top: 5px solid #b19cd9;
+    transition: transform 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-5px);
+}
+
+article h3 {
+    margin-top: 0;
+    color: #7a63a0;
+    border-bottom: 1px solid #f0e6f0;
+    padding-bottom: 10px;
+}
+
+article p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Resaltar Precio */
+article p:nth-child(2) {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #b19cd9;
+}
+
+article p:nth-child(2)::after {
+    content: " €";
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #5e4b5e;
+    color: #d8bfd8;
+    font-size: 0.8rem;
+}
