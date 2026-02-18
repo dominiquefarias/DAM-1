@@ -1,0 +1,9 @@
+Creamos un entorno virtual:
+python3 -m venv venv
+
+Activamos el entorno virtual
+source venv/bin/activate
+
+pip install torch
+
+
