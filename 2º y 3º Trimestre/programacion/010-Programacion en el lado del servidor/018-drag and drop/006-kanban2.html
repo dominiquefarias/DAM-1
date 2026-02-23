@@ -1,0 +1,324 @@
+<!doctype html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <style>
+        :root {
+            /* Tu paleta de colores personalizada */
+            --primary: rgb(188, 30, 212);
+            --secondary: rgb(190, 45, 101);
+            --bg: #f0f2f8;
+            --column-bg: rgba(255, 255, 255, 0.6);
+            --text-dark: #2d3436;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            background-image: radial-gradient(circle at 10% 20%, rgba(188, 30, 212, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(190, 45, 101, 0.05) 0%, transparent 40%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .kanban {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Columnas con efecto cristal */
+        .col {
+            background: var(--column-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .col h3 {
+            margin: 0;
+            padding: 20px 20px 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .top {
+            padding: 0 20px 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Botón Añadir Estilizado */
+        .top button.add {
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border-radius: 12px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(188, 30, 212, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .top button.add:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(188, 30, 212, 0.4);
+        }
+
+        .zona {
+            padding: 15px;
+            min-height: 450px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        /* Tarjetas Elevadas */
+        .card {
+            background: #fff;
+            border: none;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 15px;
+            cursor: grab;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Indicador lateral de color */
+        .card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: var(--primary);
+            opacity: 0.8;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card:active {
+            cursor: grabbing;
+        }
+
+        .dragover {
+            background: rgba(188, 30, 212, 0.05);
+            outline: 2px dashed var(--primary);
+            outline-offset: -8px;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .txt {
+            flex: 1;
+            min-height: 24px;
+            outline: none;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        /* Herramientas Minimalistas */
+        .tools {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 10px;
+            margin-top: 5px;
+        }
+
+        .tools input[type="color"] {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .del {
+            border: none;
+            background: #fff0f0;
+            color: #ff4757;
+            border-radius: 8px;
+            padding: 5px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .del:hover {
+            background: #ff4757;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kanban">
+        <div class="col" data-col="todo">
+            <h3>Por hacer</h3>
+            <div class="top"><button class="add">+ Añadir</button></div>
+            <div class="zona" id="suelta-1"></div>
+        </div>
+
+        <div class="col" data-col="doing">
+            <h3>En curso</h3>
+            <div class="top"><button class="add">+ Añadir</button></div>
+            <div class="zona" id="suelta-2"></div>
+        </div>
+
+        <div class="col" data-col="review">
+            <h3>En revisión</h3>
+            <div class="top"><button class="add">+ Añadir</button></div>
+            <div class="zona" id="suelta-3"></div>
+        </div>
+
+        <div class="col" data-col="done">
+            <h3>Hecho</h3>
+            <div class="top"><button class="add">+ Añadir</button></div>
+            <div class="zona" id="suelta-4"></div>
+        </div>
+    </div>
+
+    <script>
+        // ... (Aquí va tu bloque de script exactamente como lo tenías)
+        // He incluido solo las funciones clave para asegurar que el diseño sea compatible
+        let elementoArrastrado = null;
+        const KEY = "kanban_simple_v1";
+
+        function guardar() {
+            let data = {};
+            document.querySelectorAll(".col").forEach(col => {
+                let colKey = col.getAttribute("data-col");
+                let zona = col.querySelector(".zona");
+                data[colKey] = [];
+                zona.querySelectorAll(".card").forEach(card => {
+                    data[colKey].push({
+                        id: card.getAttribute("data-id"),
+                        text: card.querySelector(".txt").innerText,
+                        color: card.getAttribute("data-color") || "#ffffff"
+                    });
+                });
+            });
+            localStorage.setItem(KEY, JSON.stringify(data));
+        }
+
+        function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+
+        function aplicaColor(card, color) {
+            card.setAttribute("data-color", color);
+            // Aplicamos el color al borde izquierdo o al fondo sutilmente
+            card.style.borderLeft = `5px solid ${color}`;
+        }
+
+        function creaTarjeta(texto, color, id) {
+            let t = document.createElement("div");
+            t.className = "card";
+            t.draggable = true;
+            t.setAttribute("data-id", id || uid());
+
+            let row = document.createElement("div");
+            row.className = "row";
+
+            let txt = document.createElement("div");
+            txt.className = "txt";
+            txt.contentEditable = "true";
+            txt.innerText = texto || "Nueva tarea";
+
+            let tools = document.createElement("div");
+            tools.className = "tools";
+
+            let picker = document.createElement("input");
+            picker.type = "color";
+            picker.value = color || "#ffffff";
+
+            let del = document.createElement("button");
+            del.className = "del";
+            del.innerText = "Eliminar";
+
+            tools.appendChild(picker);
+            tools.appendChild(del);
+            row.appendChild(txt);
+            row.appendChild(tools);
+            t.appendChild(row);
+
+            aplicaColor(t, picker.value);
+
+            t.ondragstart = () => { elementoArrastrado = t; t.style.opacity = "0.5"; };
+            t.ondragend = () => { elementoArrastrado = null; t.style.opacity = "1"; guardar(); };
+            txt.oninput = () => guardar();
+            picker.oninput = () => { aplicaColor(t, picker.value); guardar(); };
+            del.onclick = () => { t.remove(); guardar(); };
+
+            return t;
+        }
+
+        // Dropzones y botones de añadir (tu misma lógica)
+        document.querySelectorAll(".zona").forEach(suelta => {
+            suelta.ondragover = (e) => { e.preventDefault(); suelta.classList.add("dragover"); };
+            suelta.ondragleave = () => suelta.classList.remove("dragover");
+            suelta.ondrop = () => {
+                suelta.classList.remove("dragover");
+                if (elementoArrastrado) suelta.appendChild(elementoArrastrado);
+                guardar();
+            };
+        });
+
+        document.querySelectorAll(".col .add").forEach(btn => {
+            btn.onclick = () => {
+                let zona = btn.closest(".col").querySelector(".zona");
+                let card = creaTarjeta("", "#bc1ed4");
+                zona.appendChild(card);
+                card.querySelector(".txt").focus();
+                guardar();
+            };
+        });
+
+        // Cargar datos iniciales
+        function cargar() {
+            let raw = localStorage.getItem(KEY);
+            if (!raw) return false;
+            let data = JSON.parse(raw);
+            Object.keys(data).forEach(k => {
+                let zona = document.querySelector(`[data-col="${k}"] .zona`);
+                zona.innerHTML = "";
+                data[k].forEach(item => zona.appendChild(creaTarjeta(item.text, item.color, item.id)));
+            });
+            return true;
+        }
+
+        if (!cargar()) {
+            document.querySelector("#suelta-1").appendChild(creaTarjeta("Mi primer tarea", "#bc1ed4"));
+            guardar();
+        }
+    </script>
+</body>
+
+</html>

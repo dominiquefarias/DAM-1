@@ -1,0 +1,122 @@
+<!doctype html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+    <style>
+        :root {
+            --bg: #f5f7fa;
+            --primary: rgb(188, 30, 212);
+            --secondary: rgb(190, 45, 101);
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .kanban {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Columnas */
+        .columna {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            width: 250px;
+            min-height: 400px;
+            padding: 15px;
+            border: 2px dashed #ddd;
+            transition: background 0.3s;
+        }
+
+        .columna h3 {
+            text-align: center;
+            color: #555;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        /* Las tareas (antes tu div #arrastra) */
+        .tarea {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: grab;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tarea:active {
+            cursor: grabbing;
+        }
+
+        /* Clase para cuando pasas una tarea por encima */
+        .hover {
+            background: rgba(190, 45, 101, 0.1);
+            border-color: var(--secondary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kanban">
+        <div class="columna" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Pendiente</h3>
+            <div id="tarea-1" class="tarea" draggable="true" ondragstart="drag(event)">
+                Diseñar Interfaz
+            </div>
+            <div id="tarea-2" class="tarea" draggable="true" ondragstart="drag(event)">
+                Revisión de Código
+            </div>
+        </div>
+
+        <div class="columna" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>En Proceso</h3>
+        </div>
+
+        <div class="columna" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Pruebas</h3>
+        </div>
+
+        <div class="columna" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Hecho</h3>
+        </div>
+    </div>
+
+    <script>
+        // Mantenemos tu lógica y añadimos lo necesario para el movimiento
+        function allowDrop(ev) {
+            ev.preventDefault(); // Necesario para permitir soltar
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+            console.log("Has empezado a arrastrar: " + ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            let data = ev.dataTransfer.getData("text");
+            let tarea = document.getElementById(data);
+
+            // Asegurarnos de soltar en la columna y no dentro de otra tarea
+            let destino = ev.target;
+            if (destino.classList.contains('tarea')) {
+                destino = destino.parentElement;
+            }
+
+            destino.appendChild(tarea);
+            console.log("Has acabado de arrastrar");
+        }
+    </script>
+</body>
+
+</html>
