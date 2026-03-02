@@ -33,13 +33,13 @@
     <main>
         <section>
             <?php
-            $host = "localhost";
-            $user = "camaron";
-            $pass = "Camaron123$";
-            $db = "camaron";
+$host = "localhost";
+$user = "camaron";
+$pass = "Camaron123$";
+$db = "camaron";
 
-            $conexion = new mysqli($host, $user, $pass, $db);
-            $resultado = $conexion->query("
+$conexion = new mysqli($host, $user, $pass, $db);
+$resultado = $conexion->query("
             SELECT * FROM viviendas 
             WHERE 
             localidad LIKE '%" . $_POST['localidad'] . "%'
@@ -47,8 +47,8 @@
             AND precio < " . $_POST['precio_maximo'] . "
             ;
           ");
-            while ($fila = $resultado->fetch_assoc()) {
-                echo '
+while ($fila = $resultado->fetch_assoc()) {
+    echo '
             	<article>
               	<h3>' . $fila['localidad'] . '</h3>
                 <p>' . $fila['precio'] . '</p>
@@ -64,8 +64,8 @@
                 <p>' . $fila['teniente'] . '</p>
               </article>
             ';
-            }
-            ?>
+}
+?>
         </section>
     </main>
     <footer>(c) Dominique Farías</footer>
